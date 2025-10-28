@@ -15,6 +15,4 @@ This is a Cypress-based automation project for web application testing.
 - npm install cypress --save-dev
 - npx cypress open
   
-```bash
-git clone https://github.com/yourusername/your-repo.git
-cd your-repo
+
