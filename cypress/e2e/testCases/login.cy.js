@@ -1,15 +1,15 @@
-const LoginPage = require("../../BasePage/Pages/LoginPage");
+const LoginPage = require("../Pages/LoginPage");
 
 Cypress.on("uncaught:exception", (err, runnable) => {
   return false;
 });
 
-describe("Rokomari Website Run", () => {
+describe("Authentication (Log in)", () => {
   beforeEach(() => {
     LoginPage.submitWithValues();
   });
 
-  it.only("TC_01: Home Page Scroll", () => {
+  it.only("TC_Login_01: Verify the Sign in page title.", () => {
     cy.wait(4000);
     // cy.get("ul.main-menu li")
     //   .eq(0)
