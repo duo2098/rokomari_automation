@@ -20,14 +20,21 @@ class BasePage {
 
   submitWithValues() {
     this.visit();
+    cy.get(
+      "button.popup-modal__close-btn.close-btn-outside.js--popup-modal__close-btn"
+    ).click();
     cy.contains("a", "Hello, Sign in").click();
     cy.get('input[placeholder="Email or phone"]').type(`${email}`);
     cy.get("button.btn.btn-block#js--btn-next").click();
     cy.get('input[type="password"]').type(`${password}`);
     cy.get('button.btn.btn-block[type="submit"]').contains("Login").click();
-    // cy.get(
-    //   "button.popup-modal__close-btn.close-btn-outside.js--popup-modal__close-btn"
-    // ).click();
+  }
+
+  titleAssertion() {
+    cy.get('a[href*="/login"]')
+      .should("be.visible")
+      .and("have.attr", "title", "Sign in")
+      .and("contain.text", "Sign in");
   }
 }
 
